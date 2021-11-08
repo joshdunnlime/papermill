@@ -29,7 +29,15 @@ options:
       `papermill template.ipynb analysis_{ANALYSIS_NAME}.ipynb \
       -p ANALYSIS_NAME regression`
       
-      and will save the output to analysis_regression.ipynb.
+      and will save the output to analysis_regression.ipynb. There are also
+      default time and uid parameters accessed through the pm dict as follows:
+          run_uuid: `str(uuid4())`
+          current_datetime_local: `datetime.now()`
+          current_datetime_utc: `datetime.utcnow()`
+      
+      `papermill template.ipynb analysis_{ANALYSIS_NAME}_{pm[run_uuid]}.ipynb \
+      -p ANALYSIS_NAME regression`.
+
 
     Options:
       --help-notebook                 Display parameters information for the given
