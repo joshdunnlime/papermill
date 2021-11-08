@@ -22,6 +22,14 @@ options:
 
       with `papermill - -` being implied by the pipes will read a notebook from
       stdin and write it out to stdout.
+      
+      The OUTPUT_PATH can also be passed as a python formatted string where all
+      user defined parameters can be passed.
+      
+      `papermill template.ipynb analysis_{ANALYSIS_NAME}.ipynb \
+      -p ANALYSIS_NAME regression`
+      
+      and will save the output to analysis_regression.ipynb.
 
     Options:
       --help-notebook                 Display parameters information for the given
