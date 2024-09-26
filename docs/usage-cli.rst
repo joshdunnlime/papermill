@@ -22,6 +22,22 @@ options:
 
       with `papermill - -` being implied by the pipes will read a notebook from
       stdin and write it out to stdout.
+      
+      The OUTPUT_PATH can also be passed as a python formatted string where all
+      user defined parameters can be passed.
+      
+      `papermill template.ipynb analysis_{ANALYSIS_NAME}.ipynb \
+      -p ANALYSIS_NAME regression`
+      
+      and will save the output to analysis_regression.ipynb. There are also
+      default time and uid parameters accessed through the pm dict as follows:
+          run_uuid: `str(uuid4())`
+          current_datetime_local: `datetime.now()`
+          current_datetime_utc: `datetime.utcnow()`
+      
+      `papermill template.ipynb analysis_{ANALYSIS_NAME}_{pm[run_uuid]}.ipynb \
+      -p ANALYSIS_NAME regression`.
+
 
     Options:
       --help-notebook                 Display parameters information for the given
